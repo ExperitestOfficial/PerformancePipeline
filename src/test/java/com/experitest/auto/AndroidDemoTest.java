@@ -26,17 +26,14 @@ public class AndroidDemoTest extends BaseTest {
 	@Parameters("deviceQuery")
 	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception{
 		init(deviceQuery);
-		// Init application / device capabilities
-		//dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");
-		//dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
-		//dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
 
 		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity");
 		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.eribank");
 		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.experitest.ExperiBank.LoginActivity");
-		dc.setCapability("appVersion", "1.1");
+		String version = System.getProperty("APP_VERSION", "1.0");
+		dc.setCapability("appVersion", version);
 		
-		
+		System.err.println("Version: " + version);
 		dc.setCapability("testName", "AndroidDemoTest");
 		driver = new AndroidDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
 		seetest = new SeeTestClient(driver);
@@ -48,14 +45,10 @@ public class AndroidDemoTest extends BaseTest {
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
 		driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
 
-		seetest.startPerformanceTransaction("");
-
-		driver.findElement(By.xpath("//*[@id='loginButton']")).click();		
+		driver.findElement(By.xpath("//*[@id='loginButton']")).click();
 		WebDriverWait wait = new WebDriverWait(driver, 20, 100);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='pBar']")));
 
-		seetest.endPerformanceTransaction("Login");
-		
 		driver.findElement(By.xpath("//*[@id='logoutButton']")).click();
 		
 	}
