@@ -1,3 +1,5 @@
 /bin/
 /cloud.properties
 test-output/
+.gradle/
+build/
