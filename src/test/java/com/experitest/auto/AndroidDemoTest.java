@@ -34,7 +34,7 @@ public class AndroidDemoTest extends BaseTest {
 		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity");
 		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.eribank");
 		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.experitest.ExperiBank.LoginActivity");
-		dc.setCapability("appVersion", "1.0");
+		dc.setCapability("appVersion", "1.1");
 		
 		
 		dc.setCapability("testName", "AndroidDemoTest");
@@ -47,11 +47,13 @@ public class AndroidDemoTest extends BaseTest {
 	public void test(){
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
 		driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
+
 		seetest.startPerformanceTransaction("");
 
 		driver.findElement(By.xpath("//*[@id='loginButton']")).click();		
 		WebDriverWait wait = new WebDriverWait(driver, 20, 100);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='pBar']")));
+
 		seetest.endPerformanceTransaction("Login");
 		
 		driver.findElement(By.xpath("//*[@id='logoutButton']")).click();
