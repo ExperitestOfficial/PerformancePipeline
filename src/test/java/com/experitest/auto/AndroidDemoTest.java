@@ -30,7 +30,8 @@ public class AndroidDemoTest extends BaseTest {
 		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity");
 		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.eribank");
 		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.experitest.ExperiBank.LoginActivity");
-		String version = System.getProperty("APP_VERSION", "1.0");
+		String version = System.getenv("APP_VERSION");
+		if(version == null) version = "1.0";
 		dc.setCapability("appVersion", version);
 		
 		System.err.println("Version: " + version);
