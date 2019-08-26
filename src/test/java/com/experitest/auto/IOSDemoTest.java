@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
+import com.experitest.appium.SeeTestClient;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
@@ -19,6 +19,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 public class IOSDemoTest extends BaseTest {
 	protected IOSDriver<IOSElement> driver = null;
 	//private SeeTestClient seetest;
+
 
 	@BeforeMethod
 	@Parameters("deviceQuery")
@@ -33,21 +34,23 @@ public class IOSDemoTest extends BaseTest {
 		
 		dc.setCapability("testName", "IOSDemoTest");
 		driver = new IOSDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
-		//seetest = new SeeTestClient(driver);
+		seetest = new SeeTestClient(driver);
+
 	}
 
 	@Test
 	public void test() {
-		
+		SeeTestClient seetest = new SeeTestClient(driver);
+
 		driver.findElement(in.Repo.obj("login.usernameTextField")).sendKeys("company");
 		driver.findElement(in.Repo.obj("login.passwordTextField")).sendKeys("company");
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(in.Repo.obj("login.loginButton")));
-		driver.executeScript("Seetest:client.startPerformanceTransaction(\"\")");
+		seetest.startPerformanceTransaction("");
 		driver.findElement(in.Repo.obj("login.loginButton")).click();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 20, 100);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='pBar']")));
-		driver.executeScript("Seetest:client.endPerformanceTransaction(\"WEB.Transaction." + driver.getCapabilities().getCapability(MobileCapabilityType.UDID) + "\")");
+		seetest.endPerformanceTransaction("WEB.Transaction");
 		driver.findElement(in.Repo.obj("main.logoutButton")).click();
 	}
 

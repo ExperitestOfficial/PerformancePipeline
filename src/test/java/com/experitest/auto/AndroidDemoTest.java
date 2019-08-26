@@ -16,10 +16,12 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
+import com.experitest.appium.SeeTestClient;
+
 
 public class AndroidDemoTest extends BaseTest {
 	protected AndroidDriver<AndroidElement> driver = null;
-	
+
 	@BeforeMethod
 	@Parameters("deviceQuery")
 	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception{
@@ -37,20 +39,20 @@ public class AndroidDemoTest extends BaseTest {
 		
 		dc.setCapability("testName", "AndroidDemoTest");
 		driver = new AndroidDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
+		seetest = new SeeTestClient(driver);
+
 	}
 	
 	@Test
 	public void test(){
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
 		driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
-		
-		driver.executeScript("Seetest:client.startPerformanceTransaction(\"\")");
-		
+		seetest.startPerformanceTransaction("");
+
 		driver.findElement(By.xpath("//*[@id='loginButton']")).click();		
 		WebDriverWait wait = new WebDriverWait(driver, 20, 100);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='pBar']")));
-		
-		driver.executeScript("Seetest:client.endPerformanceTransaction(\"Login\")");
+		seetest.endPerformanceTransaction("Login");
 		
 		driver.findElement(By.xpath("//*[@id='logoutButton']")).click();
 		

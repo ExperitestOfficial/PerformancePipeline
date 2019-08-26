@@ -5,12 +5,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.experitest.appium.SeeTestClient;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseTest {
 
 	protected DesiredCapabilities dc = new DesiredCapabilities();
 	protected Properties cloudProperties = new Properties();
+	public SeeTestClient seetest;
+
 
 	public void init(String deviceQuery) throws Exception {
 		initCloudProperties();

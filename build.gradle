@@ -9,7 +9,7 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 	maven {
-		url "https://cloud.experitest.com/repo/"
+		url "https://demo.experitest.com/repo/"
 	}
 }
 
@@ -28,6 +28,8 @@ dependencies {
 	compile 'org.testng:testng:6.9.10'
 	compile 'io.appium:java-client:6.1.0'
 	compile 'com.experitest:repo:+'
+	compile 'com.experitest:appium-seetest-extension:+'
+
 }
 
 test {
