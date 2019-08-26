@@ -51,7 +51,7 @@ pipeline {
     }
     stage('Check Performance') {
       steps {
-        sleep 5
+            powershell 'Write-Host @";{;    "filters": [;"@'
       }
     }
   }
