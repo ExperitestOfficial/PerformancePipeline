@@ -10,4 +10,45 @@
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
+  <test name="Test-class test3" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+  <test name="Test-class test4" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+  <test name="Test-class test5" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+  <test name="Test-class test6" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+  <test name="Test-class test7" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+  <test name="Test-class test8" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+  <test name="Test-class test9" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+  <test name="Test-class test10" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+
 </suite>
