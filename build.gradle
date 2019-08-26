@@ -22,13 +22,7 @@ eclipse {
 clean.dependsOn "cleanEclipse"
 build.dependsOn "eclipse"
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src']
-        }
-    }
-}
+
 
 dependencies {
 	compile 'org.testng:testng:6.9.10'

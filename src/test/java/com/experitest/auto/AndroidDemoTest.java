@@ -3,6 +3,8 @@ package com.experitest.auto;
 import java.net.URL;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -23,21 +25,37 @@ public class AndroidDemoTest extends BaseTest {
 	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception{
 		init(deviceQuery);
 		// Init application / device capabilities
-		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");
-		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
-		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
+		//dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");
+		//dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
+		//dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
+
+		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity");
+		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.eribank");
+		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.experitest.ExperiBank.LoginActivity");
+		dc.setCapability("appVersion", "1.0");
+		
+		
 		dc.setCapability("testName", "AndroidDemoTest");
 		driver = new AndroidDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
-		Thread.sleep(3000);
 	}
 	
 	@Test
-	public void test1(){
+	public void test(){
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
 		driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
-		driver.findElement(By.xpath("//*[@text='Login']")).click();
-		driver.findElement(By.xpath("//*[@text='Make Payment']"));
+		
+		driver.executeScript("Seetest:client.startPerformanceTransaction(\"\")");
+		
+		driver.findElement(By.xpath("//*[@id='loginButton']")).click();		
+		WebDriverWait wait = new WebDriverWait(driver, 20, 100);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='pBar']")));
+		
+		driver.executeScript("Seetest:client.endPerformanceTransaction(\"Login\")");
+		
+		driver.findElement(By.xpath("//*[@id='logoutButton']")).click();
+		
 	}
+	
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
