@@ -1,26 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Test-class Suite" parallel="classes" thread-count="20" >
-  <test name="Test-class test" >
+<suite name="Test-class Suite" parallel="tests" thread-count="20" >
+  <test name="Test-class test1" >
     <classes>
-      <class name="com.experitest.auto.AndroidDemoTest2" />
-      <class name="com.experitest.auto.AndroidDemoTest3" />
-      <class name="com.experitest.auto.AndroidDemoTest4" />
-      <class name="com.experitest.auto.AndroidDemoTest5" />
-      <class name="com.experitest.auto.AndroidDemoTest6" />
-      <class name="com.experitest.auto.AndroidDemoTest7" />
-      <class name="com.experitest.auto.AndroidDemoTest8" />
-      <class name="com.experitest.auto.AndroidDemoTest9" />
-      <class name="com.experitest.auto.AndroidDemoTest10" />
-      <class name="com.experitest.auto.IOSDemoTest" />
-      <class name="com.experitest.auto.IOSDemoTest2" />
-      <class name="com.experitest.auto.IOSDemoTest3" />
-      <class name="com.experitest.auto.IOSDemoTest4" />
-      <class name="com.experitest.auto.IOSDemoTest5" />
-      <class name="com.experitest.auto.IOSDemoTest6" />
-      <class name="com.experitest.auto.IOSDemoTest7" />
-      <class name="com.experitest.auto.IOSDemoTest8" />
-      <class name="com.experitest.auto.IOSDemoTest9" />
-      <class name="com.experitest.auto.IOSDemoTest10" />
+      <class name="com.experitest.auto.AndroidDemoTest" />
+    </classes>
+  </test>
+  <test name="Test-class test2" >
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
 </suite>
