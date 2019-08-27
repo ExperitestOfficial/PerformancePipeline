@@ -24,17 +24,14 @@ public class AndroidDemoTest extends BaseTest {
 
 	@BeforeMethod
 	@Parameters("deviceQuery")
-	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception{
+	public void setUp(@Optional("@os='android'") String deviceQuery, @Optional("1.0") String APP_VERSION) throws Exception{
 		init(deviceQuery);
 
 		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity");
 		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.eribank");
 		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.experitest.ExperiBank.LoginActivity");
-		String version = System.getenv("APP_VERSION");
-		if(version == null) version = "1.1";
-		dc.setCapability("appVersion", version);
+		dc.setCapability("appVersion", APP_VERSION);
 		
-		System.err.println("Version: " + version);
 		dc.setCapability("testName", "AndroidDemoTest");
 		driver = new AndroidDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
 		seetest = new SeeTestClient(driver);

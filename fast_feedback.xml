@@ -1,5 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Test-class Suite" parallel="tests" thread-count="20" >
+  <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
   <test name="Test-class test1" >
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />

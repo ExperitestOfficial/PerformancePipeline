@@ -4,3 +4,4 @@ test-output/
 .gradle/
 build/
 .idea/
+out/
