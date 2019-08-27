@@ -24,7 +24,7 @@ public class AndroidDemoTest extends BaseTest {
 
 	@BeforeMethod
 	@Parameters("deviceQuery")
-	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception{
+	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception {
 		init(deviceQuery);
 
 		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity");
