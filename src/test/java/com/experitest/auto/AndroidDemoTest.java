@@ -42,10 +42,11 @@ public class AndroidDemoTest extends BaseTest {
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
 		driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
 
+		seetest.startPerformanceTransaction("");
 		driver.findElement(By.xpath("//*[@id='loginButton']")).click();
 		WebDriverWait wait = new WebDriverWait(driver, 20, 100);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='pBar']")));
-
+		seetest.endPerformanceTransaction("Login");
 
 		driver.findElement(By.xpath("//*[@id='logoutButton']")).click();
 		
