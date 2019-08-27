@@ -23,7 +23,7 @@ public class AndroidDemoTest extends BaseTest {
 	protected AndroidDriver<AndroidElement> driver = null;
 
 	@BeforeMethod
-	@Parameters({"deviceQuery"})
+	@Parameters("deviceQuery")
 	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception{
 		init(deviceQuery);
 

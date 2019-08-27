@@ -1,62 +1,51 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Test-class Suite" parallel="tests" thread-count="20" >
-  <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
   <test name="Test-class test1" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test2" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test3" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test4" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test5" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test6" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test7" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test8" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test9" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
   </test>
   <test name="Test-class test10" >
-    <parameter name="APP_VERSION" value="">${APP_VERSION}</parameter>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest" />
     </classes>
