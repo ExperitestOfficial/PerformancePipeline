@@ -23,7 +23,7 @@ public class AndroidDemoTest extends BaseTest {
 	protected AndroidDriver<AndroidElement> driver = null;
 
 	@BeforeMethod
-	public void setUp() throws Exception {
+	public void setUp1() throws Exception {
 		init("@os='android'");
 
 		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity");
