@@ -56,7 +56,7 @@ pipeline {
     }
   }
   environment {
-    APP_VERSION = '1.0_'
+    APP_VERSION = '1.0'
   }
   post {
     always {
