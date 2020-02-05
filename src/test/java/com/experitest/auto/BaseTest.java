@@ -34,7 +34,7 @@ public class BaseTest {
 		}
 		// In case your user is assign to a single project leave empty,
 		// otherwise please specify the project name
-		dc.setCapability("project", getProperty("project", cloudProperties));
+//		dc.setCapability("project", getProperty("project", cloudProperties));
 	}
 
 	protected String getProperty(String property, Properties props) {
