@@ -8,18 +8,22 @@ pipeline {
             sleep 3
           }
         }
+
         stage('Build Android App') {
           steps {
             sleep 3
           }
         }
+
         stage('Build iOS App') {
           steps {
             sleep 3
           }
         }
+
       }
     }
+
     stage('Deploy (QA)') {
       parallel {
         stage('Deploy Server') {
@@ -27,33 +31,40 @@ pipeline {
             sleep 1
           }
         }
+
         stage('Upload Mobile Apps') {
           steps {
             sleep 1
           }
         }
+
       }
     }
+
     stage('Run Tests') {
       parallel {
         stage('Appium') {
           steps {
-            powershell 'copy C:\\Users\\guyar\\Desktop\\postman1\\cloud.properties .'
+            powershell 'copy C:\\Users\\guy\\eclipse-workspace\\Demo\\cloud.properties .'
             powershell 'set GRADLE_USER_HOME="c:\\Program Files (x86)\\gradle-4.4-rc-6";./gradlew --debug clean test --rerun-tasks'
           }
         }
+
         stage('Unit') {
           steps {
             sleep 10
           }
         }
+
       }
     }
+
     stage('Check Performance') {
       steps {
         powershell 'echo \'{"filters":["app_version":1.1,"app_name":"EriBank"]"compare_to_filter":["app_name":"EriBank","app_version","1.0,0.9,0.8"] [{"name":"*","matric":"durration","acceptade_change":"5%"},{"name":"Login","matric":"cpu_avg","acceptade_change":"5%"}]}\';echo \'https://invis.io/DXS4GF3QH9C\'; exit 1'
       }
     }
+
   }
   environment {
     APP_VERSION = '1.0'
@@ -61,7 +72,6 @@ pipeline {
   post {
     always {
       junit 'build/test-results/**/*.xml'
-
     }
 
   }
