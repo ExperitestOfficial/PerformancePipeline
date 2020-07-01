@@ -64,8 +64,8 @@ public class AndroidDemoTest extends BaseTest {
 		driver.findElement(By.xpath("//*[@id='loginButton']")).click();
 		WebDriverWait wait = new WebDriverWait(driver, 20, 100);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='pBar']")));
-		driver.findElement(By.xpath("//*[@id='logoutButton']")).click();
 		seetest.startPerformanceTransaction("");
+		driver.findElement(By.xpath("//*[@id='logoutButton']")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='passwordTextField']")));
 		seetest.endPerformanceTransaction("Logout");
 
