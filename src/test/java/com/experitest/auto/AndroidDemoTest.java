@@ -29,10 +29,9 @@ public class AndroidDemoTest extends BaseTest {
 	public void setUp1(@Optional(DEFAULT_QUERY) String devicequery) throws Exception {
 		init(devicequery);
 
-		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank");
-		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.eribank");
-		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.experitest.ExperiBank.LoginActivity");
-		dc.setCapability("appVersion", "1.2");
+		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");
+		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
+		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
 		
 
 
